@@ -6,7 +6,7 @@
 /*   By: mnassi <mnassi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 13:58:30 by mnassi            #+#    #+#             */
-/*   Updated: 2023/01/20 18:42:11 by mnassi           ###   ########.fr       */
+/*   Updated: 2023/01/20 18:49:19 by mnassi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,5 @@ char	**ft_parsing(int argc, char **argv)
 	intchecker(spliting);
 	intmaxcheck(spliting);
 	checkdublicate(spliting);
-	while (spliting[i])
-		ft_printf("%s\n", spliting[i++]);
 	return (spliting);
 }

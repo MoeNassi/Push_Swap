@@ -6,11 +6,26 @@
 /*   By: mnassi <mnassi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 15:13:38 by mnassi            #+#    #+#             */
-/*   Updated: 2023/01/20 18:27:14 by mnassi           ###   ########.fr       */
+/*   Updated: 2023/01/21 11:34:04 by mnassi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	nospace(char **arguments)
+{
+	int		i;
+
+	i = 0;
+	while (arguments[i])
+	{
+		if (ft_strncmp(arguments[i], " ", 1))
+			ft_error("The string is full with spaces");
+		if (ft_strncmp(arguments[i], "\0", 1))
+			ft_error("There's a empty string");
+		i++;
+	}
+}
 
 void	intchecker(char	**arguments)
 {
@@ -46,7 +61,7 @@ void	intmaxcheck(char **arguments)
 	{
 		pd = ft_atoi(arguments[i]);
 		if (pd > MAX_INT || pd < MIN_INT)
-			ft_error("the number is above max int");
+			ft_error("the number is above Max int or Min int");
 		i++;
 	}
 }

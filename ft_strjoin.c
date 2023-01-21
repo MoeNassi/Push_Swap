@@ -6,13 +6,13 @@
 /*   By: mnassi <mnassi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 13:54:12 by mnassi            #+#    #+#             */
-/*   Updated: 2023/01/20 15:40:30 by mnassi           ###   ########.fr       */
+/*   Updated: 2023/01/21 11:21:22 by mnassi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "push_swap.h"
-#include "Printf/ft_printf.h"
+#include "ps/ft_printf.h"
 
 int		ft_strlen(char *str)
 {
@@ -49,7 +49,7 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 		j += (size - 1) * ft_strlen(sep);
 	dest = malloc((j + 1) * sizeof(char));
 	if (!dest)
-		ft_error("malloc error");
+		ft_error("Malloc error");
 	i = 0;
 	j = 0;
 	while (i < size)

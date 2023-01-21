@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   ft_lstaddfront.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnassi <mnassi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/20 15:29:40 by mnassi            #+#    #+#             */
-/*   Updated: 2023/01/21 10:35:57 by mnassi           ###   ########.fr       */
+/*   Created: 2023/01/21 13:20:57 by mnassi            #+#    #+#             */
+/*   Updated: 2023/01/21 13:31:41 by mnassi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ps/ft_printf.h"
 #include "push_swap.h"
 
-void	ft_error(char	*s)
+void ft_lstadd_front(t_swap **lst, t_swap *new)
 {
-	ft_printf("%s\n", s);
-	exit(0);
+	if (!lst)
+		return ;
+	if (!*lst)
+	{
+		*lst = new;
+		new->next = new;
+		new->prev = new;
+	}
+	else
+		*lst = new;
 }

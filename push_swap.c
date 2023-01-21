@@ -6,12 +6,12 @@
 /*   By: mnassi <mnassi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 18:36:42 by mnassi            #+#    #+#             */
-/*   Updated: 2023/01/20 18:49:03 by mnassi           ###   ########.fr       */
+/*   Updated: 2023/01/21 13:50:02 by mnassi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "Printf/ft_printf.h"
+#include "ps/ft_printf.h"
 
 int main(int ac, char **av)
 {

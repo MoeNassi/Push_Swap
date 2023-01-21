@@ -6,7 +6,7 @@
 /*   By: mnassi <mnassi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 15:13:38 by mnassi            #+#    #+#             */
-/*   Updated: 2023/01/21 11:34:04 by mnassi           ###   ########.fr       */
+/*   Updated: 2023/01/21 15:34:21 by mnassi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	intmaxcheck(char **arguments)
 	int			i;
 	long		pd;
 	int			j;
-	
+
 	i = 0;
 	j = 0;
 	pd = 0;

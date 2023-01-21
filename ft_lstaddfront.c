@@ -6,13 +6,13 @@
 /*   By: mnassi <mnassi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 13:20:57 by mnassi            #+#    #+#             */
-/*   Updated: 2023/01/21 13:31:41 by mnassi           ###   ########.fr       */
+/*   Updated: 2023/01/21 15:33:56 by mnassi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void ft_lstadd_front(t_swap **lst, t_swap *new)
+void	ft_lstadd_front(t_swap **lst, t_swap *new)
 {
 	if (!lst)
 		return ;

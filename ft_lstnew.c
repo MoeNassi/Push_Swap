@@ -6,7 +6,7 @@
 /*   By: mnassi <mnassi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 12:22:24 by mnassi            #+#    #+#             */
-/*   Updated: 2023/01/21 13:47:00 by mnassi           ###   ########.fr       */
+/*   Updated: 2023/01/21 14:19:28 by mnassi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ t_swap	*ft_lstnew(void *content)
 
 	new = malloc(sizeof(t_swap));
 	new->content = content;
-	new->next = NULL;
+	new->next = new;
+	new->prev = new;
 	return (new);
 }

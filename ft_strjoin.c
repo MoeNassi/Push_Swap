@@ -6,7 +6,7 @@
 /*   By: mnassi <mnassi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 13:54:12 by mnassi            #+#    #+#             */
-/*   Updated: 2023/01/21 11:21:22 by mnassi           ###   ########.fr       */
+/*   Updated: 2023/01/21 15:33:26 by mnassi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "push_swap.h"
 #include "ps/ft_printf.h"
 
-int		ft_strlen(char *str)
+int	ft_strlen(char *str)
 {
 	int	index;
 
@@ -26,7 +26,7 @@ int		ft_strlen(char *str)
 
 char	*ft_strcpy(char *dest, char *src)
 {
-	int	i;
+	int		i;
 
 	i = -1;
 	while (src[++i])

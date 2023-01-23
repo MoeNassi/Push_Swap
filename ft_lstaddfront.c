@@ -6,7 +6,7 @@
 /*   By: mnassi <mnassi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 13:20:57 by mnassi            #+#    #+#             */
-/*   Updated: 2023/01/23 16:19:13 by mnassi           ###   ########.fr       */
+/*   Updated: 2023/01/23 17:44:44 by mnassi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,16 @@
 
 void	ft_lstadd_front(t_swap **lst, t_swap *new)
 {
-	if (!lst)
+	if (!new)
 		return ;
-	if (!*lst)
+	new->next = new;
+	new->prev = new;
+	if (*lst)
 	{
-		(*lst) = new;
-		new->next = new;
-		new->prev = new;
-	}
-	else
-	{
-		new->next = (*lst);
+		new->next = *lst;
 		new->prev = (*lst)->prev;
-		*lst = new;
+		(*lst)->prev->next = new;
+		(*lst)->prev = new;
 	}
+	*lst = new;
 }

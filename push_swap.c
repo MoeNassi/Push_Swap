@@ -6,7 +6,7 @@
 /*   By: mnassi <mnassi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 18:36:42 by mnassi            #+#    #+#             */
-/*   Updated: 2023/01/23 16:07:45 by mnassi           ###   ########.fr       */
+/*   Updated: 2023/01/23 17:37:27 by mnassi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	main(int ac, char **av)
 	t_swap	ot;
 	t_swap	*heada;
 	t_swap	*headb;
-	// t_swap	*tempp;
+	t_swap	*tempp;
 	t_swap	*temp;
 	int		i;
 
@@ -60,26 +60,15 @@ int	main(int ac, char **av)
 		ft_lstadd_back(&heada, ft_lstnew(ft_atoi(ot.za[i++])));
 	free_tab(ot.za);
 	temp = heada;
-	while (heada)
+	while (1)
 	{
-		ft_printf("before : %d\n", heada->content);
-		heada = heada->next;
+		ft_printf("before : %d\n", temp->content);
+		temp = temp->next;
 		if (heada == temp)
 			break ;
 	}
-	puts("A");
-	pb_push_b(&heada,&headb);
-	ft_printf("----%d\n",headb->content);
-	puts("B");
-	
-	pb_push_b(&heada,&headb);
-	ft_printf("----%d\n",headb->content);
-	ft_printf("----%d\n",headb->next->content);
-	ft_printf("----%d\n",headb->next->next->content);
-
 	// rb_rotate_b(&headb,1);
 	temp = headb;
-	puts("C");
 	// while (headb)
 	// {
 	// 	ft_printf("after : %d|%d|%d\n",headb->prev->content ,headb->content , headb->next->content);
@@ -88,23 +77,16 @@ int	main(int ac, char **av)
 	// 	if (headb == temp)
 	// 		break ;
 	// }
-	// pb_push_b(&heada, &headb);
-	// tempp = heada;
-	// while (heada)
-	// {
-	// 	ft_printf("B : %d\n", heada->content);
-	// 	heada = heada->next;
-	// 	if (heada == tempp)
-	// 		break ;
-	// }
-	// pa_push_a(&heada, &headb);
-	// tempp = heada;
-	// while (heada)
-	// {
-	// 	ft_printf("A : %d\n", heada->content);
-	// 	heada = heada->next;
-	// 	if (heada == tempp)
-	// 		break ;
-	// }
+	// rra_reverse_ra(&heada, 1);
+	pb_push_b(&heada,&headb);
+	pb_push_b(&heada,&headb);
+	tempp = headb;
+	while (1)
+	{
+		ft_printf("A : %d\n", tempp->content);
+		tempp = tempp->next;
+		if (headb == tempp)
+			break ;
+	}
 	free_list(&heada);
 }

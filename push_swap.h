@@ -6,7 +6,7 @@
 /*   By: mnassi <mnassi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 13:55:46 by mnassi            #+#    #+#             */
-/*   Updated: 2023/01/21 15:32:37 by mnassi           ###   ########.fr       */
+/*   Updated: 2023/01/23 16:12:44 by mnassi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-# include <unistd.h>
+# include <fcntl.h>
+# include "ps/ft_printf.h"
 
 # define MIN_INT -2147483648
 # define MAX_INT 2147483647
@@ -41,6 +42,17 @@ char	**ft_parsing(int argc, char **argv);
 void	checkdublicate(char	**arguments);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	nospace(char **arguments);
-t_swap	*ft_lstnew(void *content);
+t_swap	*ft_lstnew(int content);
+void	ft_lstadd_back(t_swap **lst, t_swap *new);
+void	sa_swap_a(t_swap **heada, int i);
+void	sb_swap_b(t_swap **headb, int i);
+void	ss_sa_sb(t_swap **heada, t_swap **headb);
+void	ft_lstadd_front(t_swap **lst, t_swap *new);
+void	pa_push_a(t_swap **heada, t_swap **headb);
+void	pb_push_b(t_swap **heada, t_swap **headb);
+int		ft_lstsize(t_swap *head);
+void	ra_rotate_a(t_swap **heada, int i);
+void	rb_rotate_b(t_swap **headb , int i);
+void	rr_rotate_ab(t_swap	**headb, t_swap **heada);
 
 #endif

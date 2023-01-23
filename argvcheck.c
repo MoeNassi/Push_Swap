@@ -6,7 +6,7 @@
 /*   By: mnassi <mnassi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 15:13:38 by mnassi            #+#    #+#             */
-/*   Updated: 2023/01/21 15:34:21 by mnassi           ###   ########.fr       */
+/*   Updated: 2023/01/21 17:26:10 by mnassi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,28 @@
 void	nospace(char **arguments)
 {
 	int		i;
+	int		j;
+	int		flag;
 
-	i = 0;
-	while (arguments[i])
+	i = -1;
+	j = -1;
+	flag = 0;
+	while (arguments[++i])
 	{
 		if (ft_strncmp(arguments[i], " ", 1))
-			ft_error("The string is full with spaces");
+		{
+			while (arguments[i][++j])
+			{
+				if (ft_isdigit(arguments[i][j]))
+					break ;
+				if (arguments[i][j + 1] == '\0')
+					flag = 1;
+			}
+			if (flag)
+				ft_error("The string is full with spaces");
+		}
 		if (ft_strncmp(arguments[i], "\0", 1))
 			ft_error("There's a empty string");
-		i++;
 	}
 }
 

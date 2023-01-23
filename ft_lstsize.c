@@ -1,31 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstaddfront.c                                   :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnassi <mnassi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/21 13:20:57 by mnassi            #+#    #+#             */
-/*   Updated: 2023/01/23 16:19:13 by mnassi           ###   ########.fr       */
+/*   Created: 2023/01/23 14:56:30 by mnassi            #+#    #+#             */
+/*   Updated: 2023/01/23 15:56:18 by mnassi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_lstadd_front(t_swap **lst, t_swap *new)
+int		ft_lstsize(t_swap *head)
 {
-	if (!lst)
-		return ;
-	if (!*lst)
-	{
-		(*lst) = new;
-		new->next = new;
-		new->prev = new;
-	}
-	else
-	{
-		new->next = (*lst);
-		new->prev = (*lst)->prev;
-		*lst = new;
-	}
+	int		i;
+	t_swap	*last;
+
+	if (!head)
+		return (0);
+	i = 0;
+	last = head;
+	// while (1)
+	// {
+	// 	i++;
+	// 	last = last->next;
+	// 	if(last == head)
+	// 		break;
+	// }
+	
+		printf("%d\n",last->content);
+		printf("%d\n",last->next->content);
+		printf("%d\n",last->next->next->content);
+		printf("%d\n",last->next->next->next->content);
+	return (i);
 }

@@ -6,7 +6,7 @@
 /*   By: mnassi <mnassi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 18:36:42 by mnassi            #+#    #+#             */
-/*   Updated: 2023/01/23 17:37:27 by mnassi           ###   ########.fr       */
+/*   Updated: 2023/01/24 15:39:49 by mnassi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ int	main(int ac, char **av)
 	t_swap	ot;
 	t_swap	*heada;
 	t_swap	*headb;
-	t_swap	*tempp;
 	t_swap	*temp;
 	int		i;
 
@@ -54,38 +53,19 @@ int	main(int ac, char **av)
 	heada = NULL;
 	headb = NULL;
 	if (ac == 1)
-		return (ft_error("No Argument Detected"), 0);
+		return (0);
 	ot.za = ft_parsing(ac, av);
 	while (ot.za[i])
 		ft_lstadd_back(&heada, ft_lstnew(ft_atoi(ot.za[i++])));
 	free_tab(ot.za);
+	longestincrseb(&heada);
+	temp = NULL;
 	temp = heada;
 	while (1)
 	{
-		ft_printf("before : %d\n", temp->content);
+		ft_printf("%d  ==  %d\n",temp->content, temp->key);
 		temp = temp->next;
 		if (heada == temp)
-			break ;
-	}
-	// rb_rotate_b(&headb,1);
-	temp = headb;
-	// while (headb)
-	// {
-	// 	ft_printf("after : %d|%d|%d\n",headb->prev->content ,headb->content , headb->next->content);
-		
-	// 	headb = headb->next;
-	// 	if (headb == temp)
-	// 		break ;
-	// }
-	// rra_reverse_ra(&heada, 1);
-	pb_push_b(&heada,&headb);
-	pb_push_b(&heada,&headb);
-	tempp = headb;
-	while (1)
-	{
-		ft_printf("A : %d\n", tempp->content);
-		tempp = tempp->next;
-		if (headb == tempp)
 			break ;
 	}
 	free_list(&heada);

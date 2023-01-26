@@ -6,7 +6,7 @@
 /*   By: mnassi <mnassi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 18:36:42 by mnassi            #+#    #+#             */
-/*   Updated: 2023/01/24 15:39:49 by mnassi           ###   ########.fr       */
+/*   Updated: 2023/01/26 16:35:39 by mnassi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,14 +58,13 @@ int	main(int ac, char **av)
 	while (ot.za[i])
 		ft_lstadd_back(&heada, ft_lstnew(ft_atoi(ot.za[i++])));
 	free_tab(ot.za);
-	longestincrseb(&heada);
-	temp = NULL;
-	temp = heada;
-	while (1)
+	ft_push0tob(&heada, &headb);
+	temp = headb; 
+	while (temp)
 	{
-		ft_printf("%d  ==  %d\n",temp->content, temp->key);
+		ft_printf("%d\n", temp->content);
 		temp = temp->next;
-		if (heada == temp)
+		if (temp == headb)
 			break ;
 	}
 	free_list(&heada);

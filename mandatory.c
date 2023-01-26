@@ -6,7 +6,7 @@
 /*   By: mnassi <mnassi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 12:52:08 by mnassi            #+#    #+#             */
-/*   Updated: 2023/01/24 10:34:22 by mnassi           ###   ########.fr       */
+/*   Updated: 2023/01/26 12:44:26 by mnassi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,6 @@ void	pb_push_b(t_swap **heada, t_swap **headb)
 	*heada = a->next;
 	ft_lstadd_front(headb, ft_lstnew(a->content));
 	free(del);
+	write(1,"pb\n",3);
 	
 }

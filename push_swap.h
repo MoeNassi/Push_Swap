@@ -6,7 +6,7 @@
 /*   By: mnassi <mnassi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 13:55:46 by mnassi            #+#    #+#             */
-/*   Updated: 2023/01/24 15:25:06 by mnassi           ###   ########.fr       */
+/*   Updated: 2023/01/25 16:05:42 by mnassi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,8 @@ void	rr_rotate_ab(t_swap	**headb, t_swap **heada);
 void	rra_reverse_ra(t_swap **heada, int i);
 void	rrb_reverse_rb(t_swap **headb, int i);
 void	rrr_reverser(t_swap **heada, t_swap **headb);
-int		countLIS(t_swap **heada);
-void	longestincrseb(t_swap **heada);
+int		countlis(t_swap **heada);
+int		longestincrseb(t_swap **heada);
+void	ft_push0tob(t_swap **heada, t_swap **headb);
 
 #endif

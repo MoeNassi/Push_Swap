@@ -6,7 +6,7 @@
 /*   By: mnassi <mnassi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 18:36:42 by mnassi            #+#    #+#             */
-/*   Updated: 2023/01/26 16:35:39 by mnassi           ###   ########.fr       */
+/*   Updated: 2023/02/07 15:29:08 by mnassi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 void	free_tab(char **s)
 {
-	int i;
+	int		i;
+
 	i = 0;
 	while (s[i])
 	{
@@ -41,6 +42,7 @@ void	free_list(t_swap **s)
 			break;
 	}
 }
+
 int	main(int ac, char **av)
 {
 	t_swap	ot;
@@ -59,12 +61,13 @@ int	main(int ac, char **av)
 		ft_lstadd_back(&heada, ft_lstnew(ft_atoi(ot.za[i++])));
 	free_tab(ot.za);
 	ft_push0tob(&heada, &headb);
-	temp = headb; 
+	ft_best_move(&heada, &headb);
+	temp = heada;
 	while (temp)
 	{
 		ft_printf("%d\n", temp->content);
 		temp = temp->next;
-		if (temp == headb)
+		if (temp == heada)
 			break ;
 	}
 	free_list(&heada);

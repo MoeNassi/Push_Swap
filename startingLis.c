@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   StartingLis.c                                      :+:      :+:    :+:   */
+/*   startinglis.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnassi <mnassi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 12:04:00 by mnassi            #+#    #+#             */
-/*   Updated: 2023/01/26 16:32:21 by mnassi           ###   ########.fr       */
+/*   Updated: 2023/02/07 15:30:09 by mnassi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,19 +64,18 @@ int	countlis(t_swap **heada)
 	return (i);
 }
 
-int		fakeswap(t_swap **heada)
+int		fakeswap(t_swap **heada, int *lis)
 {
-	int		old;
+	// int		old;
 	int		new;
 
-	old = longestincrseb(heada);
+	
 	sa_swap_a(heada, 0);
 	new = longestincrseb(heada);
-	if (new > old)
-		return (write(1, "sa\n", 3), 1);
+	if (new > *lis)
+		return (write(1, "sa\n", 3), *lis = new ,1);
 	else
 		return (sa_swap_a(heada, 0), longestincrseb(heada), 0);
-	return (0);
 }
 
 void	ft_push0tob(t_swap **heada, t_swap **headb)
@@ -84,12 +83,12 @@ void	ft_push0tob(t_swap **heada, t_swap **headb)
 	int		pushing;
 	int		i;
 
-	fakeswap(heada);
 	i = ft_lstsize(*heada);
 	pushing = longestincrseb(heada);
 	while (i > pushing)
 	{
-		
+		if (fakeswap(heada, &pushing))
+			continue;
 		if (!(*heada)->key)
 		{
 			pb_push_b(heada, headb);
@@ -98,4 +97,38 @@ void	ft_push0tob(t_swap **heada, t_swap **headb)
 		else
 			ra_rotate_a(heada, 1);
 	}
+}
+
+void	ft_best_move(t_swap **heada, t_swap **headb)
+{
+	int		i;
+	t_swap	*head;
+	t_swap	*temp;
+	int		move;
+
+	i = 0;
+	move = 0;
+	if (!*headb)
+		return ;
+	head = (*heada);
+	temp = (*heada);
+	while (1)
+	{
+		temp = temp->next;
+		if (temp == (*heada))
+			break ;
+	}
+	while (*heada)
+	{
+		if (((*headb)->content < (*heada)->next->content && (*headb)->content > (*heada)->content))
+		{
+			(*heada)= (*heada)->next;
+			pa_push_a(heada, headb);
+		}
+		rra_reverse_ra(heada, 1);
+		move++;
+		if (head == (*heada))
+			break ;
+	}
+	printf("===%d\n", move);
 }

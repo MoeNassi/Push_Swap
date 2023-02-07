@@ -6,7 +6,7 @@
 /*   By: mnassi <mnassi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 14:55:00 by mnassi            #+#    #+#             */
-/*   Updated: 2023/01/25 14:40:24 by mnassi           ###   ########.fr       */
+/*   Updated: 2023/01/27 15:31:23 by mnassi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ra_rotate_a(t_swap **heada , int i)
 		return ;
 	*heada = (*heada)->next;
 	if(i == 1)
-		write(1,"ra\n",3);
+		write(1,"ra\n", 3);
 }
 
 void	rb_rotate_b(t_swap **headb , int i)
@@ -27,7 +27,7 @@ void	rb_rotate_b(t_swap **headb , int i)
 		return ;
 	*headb = (*headb)->next;
 	if(i == 1)
-		write(1,"rb\n",3);
+		write(1,"rb\n", 3);
 }
 
 void	rr_rotate_ab(t_swap	**headb, t_swap **heada)

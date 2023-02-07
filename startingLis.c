@@ -6,7 +6,7 @@
 /*   By: mnassi <mnassi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 12:04:00 by mnassi            #+#    #+#             */
-/*   Updated: 2023/02/07 15:30:09 by mnassi           ###   ########.fr       */
+/*   Updated: 2023/02/07 15:31:48 by mnassi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,5 +130,4 @@ void	ft_best_move(t_swap **heada, t_swap **headb)
 		if (head == (*heada))
 			break ;
 	}
-	printf("===%d\n", move);
 }

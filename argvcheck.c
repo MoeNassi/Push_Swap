@@ -6,7 +6,7 @@
 /*   By: mnassi <mnassi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 15:13:38 by mnassi            #+#    #+#             */
-/*   Updated: 2023/01/21 17:26:10 by mnassi           ###   ########.fr       */
+/*   Updated: 2023/02/08 11:54:40 by mnassi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	nospace(char **arguments)
 					flag = 1;
 			}
 			if (flag)
-				ft_error("The string is full with spaces");
+				ft_error("Error");
 		}
 		if (ft_strncmp(arguments[i], "\0", 1))
 			ft_error("There's a empty string");
@@ -54,7 +54,7 @@ void	intchecker(char	**arguments)
 		while (arguments[i][j])
 		{
 			if (!ft_isdigit(arguments[i][j]))
-				ft_error("Non digit argument");
+				ft_error("Error");
 			j++;
 		}
 		i++;
@@ -74,7 +74,7 @@ void	intmaxcheck(char **arguments)
 	{
 		pd = ft_atoi(arguments[i]);
 		if (pd > MAX_INT || pd < MIN_INT)
-			ft_error("the number is above Max int or Min int");
+			ft_error("Error");
 		i++;
 	}
 }
@@ -91,7 +91,7 @@ void	checkdublicate(char	**arguments)
 		while (arguments[index])
 		{
 			if (ft_atoi(arguments[i]) == ft_atoi(arguments[index]))
-				ft_error("Dublicated Integer");
+				ft_error("Error");
 			index++;
 		}
 		i++;

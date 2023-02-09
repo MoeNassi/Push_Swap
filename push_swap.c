@@ -6,7 +6,7 @@
 /*   By: mnassi <mnassi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 18:36:42 by mnassi            #+#    #+#             */
-/*   Updated: 2023/02/08 16:19:58 by mnassi           ###   ########.fr       */
+/*   Updated: 2023/02/09 16:34:52 by mnassi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ int	main(int ac, char **av)
 	free_tab(ot.za);
 	ft_push0tob(&heada, &headb);
 	ft_best_move(&heada, &headb);
+	ft_fix_check(&heada);
 	temp = heada;
 	while (temp)
 	{

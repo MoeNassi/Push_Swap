@@ -6,7 +6,7 @@
 /*   By: mnassi <mnassi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 12:04:00 by mnassi            #+#    #+#             */
-/*   Updated: 2023/02/08 18:37:55 by mnassi           ###   ########.fr       */
+/*   Updated: 2023/02/09 16:59:09 by mnassi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,26 +101,18 @@ void	ft_push0tob(t_swap **heada, t_swap **headb)
 
 void	ft_best_move(t_swap **heada, t_swap **headb)
 {
-	int		j;
 	t_swap	*head;
-	t_swap	*temp;
-	t_move	move;
 
-	j = 0;
-	move.move = 0;
+
 	if (!*headb)
 		return ;
 	head = (*heada);
-	temp = (*heada);
 	while (*heada)
 	{
 		if (((*headb)->content < (*heada)->content && (*headb)->content > (*heada)->prev->content))
 			pa_push_a(heada, headb);
 		rr_rotate_ab(heada, headb);
-		move.move++;
 		if (head == (*heada))
 			break ;
 	}
-	j = ft_search_sis(heada);
-	// printf("====%d\n", j);
 }

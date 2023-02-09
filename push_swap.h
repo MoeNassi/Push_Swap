@@ -6,7 +6,7 @@
 /*   By: mnassi <mnassi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 13:55:46 by mnassi            #+#    #+#             */
-/*   Updated: 2023/02/08 18:37:10 by mnassi           ###   ########.fr       */
+/*   Updated: 2023/02/09 15:27:01 by mnassi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,9 @@ typedef struct s_swap
 
 typedef struct s_move
 {
-	int		move;
+	int		movea;
+	int		moveb;
+	int		snb;
 }				t_move;
 
 char	**ft_split(char *s, char c);
@@ -67,7 +69,9 @@ int		longestincrseb(t_swap **heada);
 void	ft_push0tob(t_swap **heada, t_swap **headb);
 void	ft_best_move(t_swap **heada, t_swap **headb);
 int		ft_search_sis(t_swap **heada);
-void	countmoves(t_swap **heada, int ct);
+void	countmoves(t_swap **heada, int ct, int nb);
 int		ft_index(t_swap **head, int cmp);
+void	ft_fix_check(t_swap **heada);
+int		ft_search_sis2(t_swap **heada);
 
 #endif

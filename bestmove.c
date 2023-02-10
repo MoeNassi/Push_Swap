@@ -6,7 +6,7 @@
 /*   By: mnassi <mnassi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 16:22:32 by mnassi            #+#    #+#             */
-/*   Updated: 2023/02/09 17:03:38 by mnassi           ###   ########.fr       */
+/*   Updated: 2023/02/10 15:34:23 by mnassi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,11 +95,23 @@ void	countmoves(t_swap **heada, int ct, int nb)
 
 void	ft_fix_check(t_swap **heada)
 {
-	int	i;
+	int		i;
+	t_swap	*head;
 
 	i = ft_search_sis(heada);
+	head = (*heada);
 	if (i > ft_lstsize(*heada) / 2)
 		i -= ft_lstsize(*heada);
+	while (head)
+	{
+		if (head->next->content < head->content)
+			return ;
+		else
+			break ;
+		head = head->next;
+		if (head == (*heada))
+			break ;
+	}
 	while(i >= 0)
 	{
 		ra_rotate_a(heada, 1);
@@ -110,4 +122,7 @@ void	ft_fix_check(t_swap **heada)
 		rra_reverse_ra(heada, 1);
 		i++;
 	}
+	head = (*heada);
+	if (head->content > (*heada)->prev->content)
+		rra_reverse_ra(heada, 1);
 }

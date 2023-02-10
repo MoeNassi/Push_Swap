@@ -1,31 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstaddfront.c                                   :+:      :+:    :+:   */
+/*   push_swap_b.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnassi <mnassi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/21 13:20:57 by mnassi            #+#    #+#             */
-/*   Updated: 2023/02/10 14:50:53 by mnassi           ###   ########.fr       */
+/*   Created: 2023/02/10 12:30:08 by mnassi            #+#    #+#             */
+/*   Updated: 2023/02/10 12:31:11 by mnassi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#ifndef PUSH_SWAP_B_H
+# define PUSH_SWAP_B_H
 
-void	ft_lstadd_front(t_swap **lst, t_swap *new)
-{
-	if (!new)
-		return ;
-	if (!lst)
-		return ;
-	new->next = new;
-	new->prev = new;
-	if (*lst)
-	{
-		new->next = *lst;
-		new->prev = (*lst)->prev;
-		(*lst)->prev->next = new;
-		(*lst)->prev = new;
-	}
-	*lst = new;
-}
+#include <stdlib.h>
+#include <unistd.h>
+#include <fcntl.h>
+
+
+#endif

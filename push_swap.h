@@ -6,7 +6,7 @@
 /*   By: mnassi <mnassi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 13:55:46 by mnassi            #+#    #+#             */
-/*   Updated: 2023/02/09 15:27:01 by mnassi           ###   ########.fr       */
+/*   Updated: 2023/02/16 16:29:00 by mnassi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
+# include <limits.h>
 # include "ps/ft_printf.h"
 
 # define MIN_INT -2147483648
@@ -27,6 +28,8 @@ typedef struct s_swap
 	int				content;
 	struct s_swap	*next;
 	struct s_swap	*prev;
+	int				moves;
+	int				index;
 	int				key;
 }				t_swap;
 
@@ -34,7 +37,9 @@ typedef struct s_move
 {
 	int		movea;
 	int		moveb;
-	int		snb;
+	int		total;
+	int		bestmovea;
+	int		bestmoveb;
 }				t_move;
 
 char	**ft_split(char *s, char c);
@@ -67,11 +72,12 @@ void	rrr_reverser(t_swap **heada, t_swap **headb);
 int		countlis(t_swap **heada);
 int		longestincrseb(t_swap **heada);
 void	ft_push0tob(t_swap **heada, t_swap **headb);
-void	ft_best_move(t_swap **heada, t_swap **headb);
+void	ft_search_forb(t_swap **heada, t_swap **headb, t_move *mv);
+void	whosbetter(t_move *mv);
+int		ft_abs(int i);
+void	ajilhnasirilhih(t_swap **heada, t_swap **headb, t_move *mv);
 int		ft_search_sis(t_swap **heada);
-void	countmoves(t_swap **heada, int ct, int nb);
 int		ft_index(t_swap **head, int cmp);
 void	ft_fix_check(t_swap **heada);
-int		ft_search_sis2(t_swap **heada);
 
 #endif

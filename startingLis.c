@@ -6,7 +6,7 @@
 /*   By: mnassi <mnassi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 12:04:00 by mnassi            #+#    #+#             */
-/*   Updated: 2023/02/10 15:15:44 by mnassi           ###   ########.fr       */
+/*   Updated: 2023/02/16 15:33:27 by mnassi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,8 @@ int	countlis(t_swap **heada)
 
 int		fakeswap(t_swap **heada, int *lis)
 {
-	// int		old;
 	int		new;
 
-	
 	sa_swap_a(heada, 0);
 	new = longestincrseb(heada);
 	if (new > *lis)
@@ -99,19 +97,3 @@ void	ft_push0tob(t_swap **heada, t_swap **headb)
 	}
 }
 
-void	ft_best_move(t_swap **heada, t_swap **headb)
-{
-	t_swap	*head;
-
-	if (!*headb)
-		return ;
-	head = (*heada);
-	while (*heada)
-	{
-		if (((*headb)->content < (*heada)->content && (*headb)->content > (*heada)->prev->content))
-			pa_push_a(heada, headb);
-		rr_rotate_ab(heada, headb);
-		if (head == (*heada))
-			break ;
-	}
-}

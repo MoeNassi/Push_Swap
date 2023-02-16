@@ -6,11 +6,69 @@
 /*   By: mnassi <mnassi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 16:22:32 by mnassi            #+#    #+#             */
-/*   Updated: 2023/02/10 15:34:23 by mnassi           ###   ########.fr       */
+/*   Updated: 2023/02/16 16:31:02 by mnassi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	ft_index_lst(t_swap **head)
+{
+	t_swap	*head1;
+	int 	i;
+
+	i = 0;
+	head1 = (*head);
+	while (head1)
+	{
+		i++;
+		head1 = head1->next;
+		if (head1 == (*head))
+			break ;
+	}
+	head1->index = i;
+}
+
+t_swap	*ft_find_so(t_swap **heada, t_swap *headb, t_move *mv)
+{
+	t_swap	*head;
+	t_swap	*next;
+	int		i;
+
+	i = 0;
+	head = (*heada)->prev;
+	next = (*heada);
+	while (1)
+	{
+		if (((*headb).content < next->content && head->content < (*headb).content)
+			|| (head->content > next->content
+				&& ((*headb).content > head->content || (*headb).content < next->content)))
+		{
+			mv->movea = i;
+			return (headb);
+		}
+		head = head->next;
+		next = next->next;
+		i++;
+		if (next == (*heada))
+			break ;
+	}
+	return (NULL);
+}
+
+void	searchfr(t_move *mv)
+{
+	if (mv->moveb >= 0 && mv->movea >= 0)
+		whosbetter(mv);
+	else if (mv->moveb < 0 && mv->movea < 0)
+		whosbetter(mv);
+	else if (ft_abs(mv->movea) + ft_abs(mv->moveb) <= mv->total)
+	{
+		mv->total = ft_abs(mv->movea) + ft_abs(mv->moveb);
+		mv->bestmovea = mv->movea;
+		mv->bestmoveb = mv->moveb;
+	}
+}
 
 int	ft_search_sis(t_swap **heada)
 {
@@ -28,101 +86,37 @@ int	ft_search_sis(t_swap **heada)
 		if (head == (*heada))
 			break ;
 	}
-	nmb = chr;
-	chr = ft_index(heada, nmb);
-	countmoves(heada, chr, nmb);
-	return (chr);
+	nmb = ft_index(heada, chr);
+	return (nmb);
 }
 
-int	ft_search_sis2(t_swap **heada)
+void	ft_search_forb(t_swap **heada, t_swap **headb, t_move *mv)
 {
 	t_swap	*head;
-	int		chr;
+	t_swap	*copy;
+	int	size;
 
-	head = (*heada);
-	while (head)
+	size = ft_lstsize(*headb);
+	while(size-- > 0)
 	{
-		if (head->next->content < head->content)
-			chr = head->next->content;
-		head = head->next;
-		if (head == (*heada))
-			break ;
+		mv->total = INT_MAX;
+		ft_index_lst(headb);
+		head = (*headb);
+		while (headb)
+		{
+			copy = ft_find_so(heada, *headb, mv);
+			mv->moveb = head->index;
+			if(mv->movea > (ft_lstsize(*heada) / 2))
+				mv->movea -= ft_lstsize(*heada);
+			if(mv->moveb > (ft_lstsize(*headb) / 2))
+				mv->moveb -= ft_lstsize(*headb);
+			searchfr(mv);
+			(*headb) = (*headb)->next;
+			if (head == (*headb))
+				break ;
+		}
+		ajilhnasirilhih(heada, headb, mv);
+		pa_push_a(heada, headb);
 	}
-	return (chr);
-}
-
-int	ft_index(t_swap **head, int cmp)
-{
-	t_swap	*tmp;
-	int		i;
-
-	i = 0;
-	tmp = (*head);
-	while (tmp)
-	{
-		if (cmp == tmp->content)
-			break ;
-		i++;
-		tmp = tmp->next;
-		if (tmp == (*head))
-			break ;
-	}
-	return (i);
-}
-
-void	countmoves(t_swap **heada, int ct, int nb)
-{
-	int		j;
-	t_move	mv;
-	t_swap	*head;
-
-	j = 0;
-	mv.movea = 0;
-	head = (*heada);
-	while (head)
-	{
-		if (ct < ft_lstsize(*heada) / 2)
-			ra_rotate_a(heada, 1);
-		else
-			rra_reverse_ra(heada, 1);
-		mv.movea++;
-		j++;
-		head = head->next;
-		if (head->content == nb)
-			break ;
-	}
-}
-
-void	ft_fix_check(t_swap **heada)
-{
-	int		i;
-	t_swap	*head;
-
-	i = ft_search_sis(heada);
-	head = (*heada);
-	if (i > ft_lstsize(*heada) / 2)
-		i -= ft_lstsize(*heada);
-	while (head)
-	{
-		if (head->next->content < head->content)
-			return ;
-		else
-			break ;
-		head = head->next;
-		if (head == (*heada))
-			break ;
-	}
-	while(i >= 0)
-	{
-		ra_rotate_a(heada, 1);
-		i--;
-	}
-	while(i <= 0)
-	{
-		rra_reverse_ra(heada, 1);
-		i++;
-	}
-	head = (*heada);
-	if (head->content > (*heada)->prev->content)
-		rra_reverse_ra(heada, 1);
+	ft_fix_check(heada);
 }

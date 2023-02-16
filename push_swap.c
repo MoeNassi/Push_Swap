@@ -6,12 +6,50 @@
 /*   By: mnassi <mnassi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 18:36:42 by mnassi            #+#    #+#             */
-/*   Updated: 2023/02/10 15:05:04 by mnassi           ###   ########.fr       */
+/*   Updated: 2023/02/16 16:35:38 by mnassi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "ps/ft_printf.h"
+
+void	ft_fix_check(t_swap **heada)
+{
+	int		i;
+
+	i = ft_search_sis(heada);
+	if (i > ft_lstsize(*heada) / 2)
+		i -= ft_lstsize(*heada);
+	while (i > 0)
+	{
+		ra_rotate_a(heada, 1);
+		i--;
+	}
+	while (i < 0)
+	{
+		rra_reverse_ra(heada, 1);
+		i++;
+	}
+}
+
+int	ft_index(t_swap **head, int cmp)
+{
+	t_swap	*tmp;
+	int		i;
+
+	i = 0;
+	tmp = (*head);
+	while (tmp)
+	{
+		if (cmp == tmp->content)
+			break ;
+		i++;
+		tmp = tmp->next;
+		if (tmp == (*head))
+			break ;
+	}
+	return (i);
+}
 
 void	free_tab(char **s)
 {
@@ -50,6 +88,7 @@ int	main(int ac, char **av)
 	t_swap	*headb;
 	t_swap	*temp;
 	int		i;
+	t_move	mv;
 
 	i = 0;
 	heada = NULL;
@@ -61,12 +100,11 @@ int	main(int ac, char **av)
 		ft_lstadd_back(&heada, ft_lstnew(ft_atoi(ot.za[i++])));
 	free_tab(ot.za);
 	ft_push0tob(&heada, &headb);
-	ft_best_move(&heada, &headb);
-	ft_fix_check(&heada);
+	ft_search_forb(&heada, &headb, &mv);
 	temp = heada;
 	while (temp)
 	{
-		ft_printf("%d\n", temp->content);
+		ft_printf("a == %d\n", temp->content);
 		temp = temp->next;
 		if (temp == heada)
 			break ;

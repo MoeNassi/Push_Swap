@@ -6,7 +6,7 @@
 /*   By: mnassi <mnassi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 15:23:25 by mnassi            #+#    #+#             */
-/*   Updated: 2023/02/16 15:03:42 by mnassi           ###   ########.fr       */
+/*   Updated: 2023/02/18 15:21:02 by mnassi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,13 @@ void	ajilhnasirilhih(t_swap **heada, t_swap **headb, t_move *mv)
 {
 	while (mv->bestmovea > 0 && mv->bestmoveb > 0)
 	{
-		rr_rotate_ab(heada, headb);
+		rr_rotate_ab(heada, headb, 1);
 		mv->bestmovea--;
 		mv->bestmoveb--;
 	}
 	while (mv->bestmovea < 0 && mv->bestmoveb < 0)
 	{
-		rrr_reverser(heada, headb);
+		rrr_reverser(heada, headb, 1);
 		mv->bestmovea++;
 		mv->bestmoveb++;
 	}
@@ -61,12 +61,20 @@ void	ajilhnasirilhih(t_swap **heada, t_swap **headb, t_move *mv)
 	}
 	while (mv->bestmoveb > 0)
 	{
-		ra_rotate_a(headb, 1);
+		rb_rotate_b(headb, 1);
 		mv->bestmoveb--;
 	}
 	while (mv->bestmoveb < 0)
 	{
-		rra_reverse_ra(headb, 1);
+		rrb_reverse_rb(headb, 1);
 		mv->bestmoveb++;
 	}
+}
+
+void	checkmoves(t_swap **heada, t_swap **headb, t_move *mv)
+{
+	if (mv->movea > (ft_lstsize(*heada) / 2))
+		mv->movea -= ft_lstsize(*heada);
+	if (mv->moveb > (ft_lstsize(*headb) / 2))
+		mv->moveb -= ft_lstsize(*headb);
 }

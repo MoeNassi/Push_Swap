@@ -6,7 +6,7 @@
 /*   By: mnassi <mnassi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 12:52:08 by mnassi            #+#    #+#             */
-/*   Updated: 2023/01/26 12:44:26 by mnassi           ###   ########.fr       */
+/*   Updated: 2023/02/18 14:49:47 by mnassi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	sa_swap_a(t_swap **heada, int i)
 	inde = (*heada)->content;
 	(*heada)->content = (*heada)->next->content; 
 	(*heada)->next->content = inde;
-		if (i == 1)
+	if (i == 1)
 		write(1, "sa\n", 3);
 }
 
@@ -43,14 +43,15 @@ void	sb_swap_b(t_swap **headb, int i)
 		write(1, "sb\n", 3);
 }
 
-void	ss_sa_sb(t_swap **heada, t_swap **headb)
+void	ss_sa_sb(t_swap **heada, t_swap **headb, int i)
 {
 	sa_swap_a(heada, 0);
 	sb_swap_b(headb, 0);
-	write(1, "ss\n", 3);
+	if (i == 1)
+		write(1, "ss\n", 3);
 }
 
-void	pa_push_a(t_swap **heada, t_swap **headb)
+void	pa_push_a(t_swap **heada, t_swap **headb, int i)
 {
 	t_swap	*del;
 	t_swap	*b;
@@ -62,11 +63,13 @@ void	pa_push_a(t_swap **heada, t_swap **headb)
 	b->next->prev = b->prev;
 	del = b;
 	*headb = b->next; 
+	if (i == 1)
+		write(1, "pa\n", 3);
 	ft_lstadd_front(heada, ft_lstnew(b->content));
 	free(del);
 }
 
-void	pb_push_b(t_swap **heada, t_swap **headb)
+void	pb_push_b(t_swap **heada, t_swap **headb, int i)
 {
 	t_swap	*a;
 	t_swap *del;
@@ -80,6 +83,7 @@ void	pb_push_b(t_swap **heada, t_swap **headb)
 	*heada = a->next;
 	ft_lstadd_front(headb, ft_lstnew(a->content));
 	free(del);
-	write(1,"pb\n",3);
+	if (i == 1)
+		write(1,"pb\n",3);
 	
 }

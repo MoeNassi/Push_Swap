@@ -6,7 +6,7 @@
 /*   By: mnassi <mnassi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 18:36:42 by mnassi            #+#    #+#             */
-/*   Updated: 2023/02/16 16:35:38 by mnassi           ###   ########.fr       */
+/*   Updated: 2023/02/18 11:07:25 by mnassi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_fix_check(t_swap **heada)
 	int		i;
 
 	i = ft_search_sis(heada);
-	if (i > ft_lstsize(*heada) / 2)
+	if (i > (ft_lstsize(*heada) / 2))
 		i -= ft_lstsize(*heada);
 	while (i > 0)
 	{
@@ -86,7 +86,6 @@ int	main(int ac, char **av)
 	t_swap	ot;
 	t_swap	*heada;
 	t_swap	*headb;
-	t_swap	*temp;
 	int		i;
 	t_move	mv;
 
@@ -101,13 +100,6 @@ int	main(int ac, char **av)
 	free_tab(ot.za);
 	ft_push0tob(&heada, &headb);
 	ft_search_forb(&heada, &headb, &mv);
-	temp = heada;
-	while (temp)
-	{
-		ft_printf("a == %d\n", temp->content);
-		temp = temp->next;
-		if (temp == heada)
-			break ;
-	}
+	ft_fix_check(&heada);
 	free_list(&heada);
 }

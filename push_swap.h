@@ -6,7 +6,7 @@
 /*   By: mnassi <mnassi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 13:55:46 by mnassi            #+#    #+#             */
-/*   Updated: 2023/02/16 16:29:00 by mnassi           ###   ########.fr       */
+/*   Updated: 2023/02/18 15:20:24 by mnassi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 typedef struct s_swap
 {
 	char			**za;
+	char			**st;
 	int				content;
 	struct s_swap	*next;
 	struct s_swap	*prev;
@@ -58,17 +59,17 @@ t_swap	*ft_lstnew(int content);
 void	ft_lstadd_back(t_swap **lst, t_swap *new);
 void	sa_swap_a(t_swap **heada, int i);
 void	sb_swap_b(t_swap **headb, int i);
-void	ss_sa_sb(t_swap **heada, t_swap **headb);
+void	ss_sa_sb(t_swap **heada, t_swap **headb, int i);
 void	ft_lstadd_front(t_swap **lst, t_swap *new);
-void	pa_push_a(t_swap **heada, t_swap **headb);
-void	pb_push_b(t_swap **heada, t_swap **headb);
+void	pa_push_a(t_swap **heada, t_swap **headb, int i);
+void	pb_push_b(t_swap **heada, t_swap **headb, int i);
 int		ft_lstsize(t_swap *head);
 void	ra_rotate_a(t_swap **heada, int i);
 void	rb_rotate_b(t_swap **headb , int i);
-void	rr_rotate_ab(t_swap	**headb, t_swap **heada);
+void	rr_rotate_ab(t_swap	**heada, t_swap **headb, int i);
 void	rra_reverse_ra(t_swap **heada, int i);
 void	rrb_reverse_rb(t_swap **headb, int i);
-void	rrr_reverser(t_swap **heada, t_swap **headb);
+void	rrr_reverser(t_swap **heada, t_swap **headb, int i);
 int		countlis(t_swap **heada);
 int		longestincrseb(t_swap **heada);
 void	ft_push0tob(t_swap **heada, t_swap **headb);
@@ -79,5 +80,6 @@ void	ajilhnasirilhih(t_swap **heada, t_swap **headb, t_move *mv);
 int		ft_search_sis(t_swap **heada);
 int		ft_index(t_swap **head, int cmp);
 void	ft_fix_check(t_swap **heada);
+void	checkmoves(t_swap **heada, t_swap **headb, t_move *mv);
 
 #endif

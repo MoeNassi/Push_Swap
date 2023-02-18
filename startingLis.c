@@ -6,7 +6,7 @@
 /*   By: mnassi <mnassi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 12:04:00 by mnassi            #+#    #+#             */
-/*   Updated: 2023/02/16 15:33:27 by mnassi           ###   ########.fr       */
+/*   Updated: 2023/02/18 15:21:21 by mnassi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void	ft_push0tob(t_swap **heada, t_swap **headb)
 			continue;
 		if (!(*heada)->key)
 		{
-			pb_push_b(heada, headb);
+			pb_push_b(heada, headb, 1);
 			i--;
 		}
 		else

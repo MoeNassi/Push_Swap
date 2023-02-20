@@ -6,7 +6,7 @@
 /*   By: mnassi <mnassi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 13:55:46 by mnassi            #+#    #+#             */
-/*   Updated: 2023/02/18 15:20:24 by mnassi           ###   ########.fr       */
+/*   Updated: 2023/02/20 17:25:14 by mnassi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	pa_push_a(t_swap **heada, t_swap **headb, int i);
 void	pb_push_b(t_swap **heada, t_swap **headb, int i);
 int		ft_lstsize(t_swap *head);
 void	ra_rotate_a(t_swap **heada, int i);
-void	rb_rotate_b(t_swap **headb , int i);
+void	rb_rotate_b(t_swap **headb, int i);
 void	rr_rotate_ab(t_swap	**heada, t_swap **headb, int i);
 void	rra_reverse_ra(t_swap **heada, int i);
 void	rrb_reverse_rb(t_swap **headb, int i);
@@ -75,11 +75,13 @@ int		longestincrseb(t_swap **heada);
 void	ft_push0tob(t_swap **heada, t_swap **headb);
 void	ft_search_forb(t_swap **heada, t_swap **headb, t_move *mv);
 void	whosbetter(t_move *mv);
-int		ft_abs(int i);
+int		ft_pos(int i);
 void	ajilhnasirilhih(t_swap **heada, t_swap **headb, t_move *mv);
 int		ft_search_sis(t_swap **heada);
 int		ft_index(t_swap **head, int cmp);
 void	ft_fix_check(t_swap **heada);
 void	checkmoves(t_swap **heada, t_swap **headb, t_move *mv);
+void	free_tab(char **s);
+void	free_list(t_swap **s);
 
 #endif

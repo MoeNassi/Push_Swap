@@ -6,7 +6,7 @@
 /*   By: mnassi <mnassi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 12:52:08 by mnassi            #+#    #+#             */
-/*   Updated: 2023/02/18 14:49:47 by mnassi           ###   ########.fr       */
+/*   Updated: 2023/02/20 17:47:02 by mnassi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	sa_swap_a(t_swap **heada, int i)
 	if (!heada || !*heada)
 		return ;
 	inde = (*heada)->content;
-	(*heada)->content = (*heada)->next->content; 
+	(*heada)->content = (*heada)->next->content;
 	(*heada)->next->content = inde;
 	if (i == 1)
 		write(1, "sa\n", 3);
@@ -37,7 +37,7 @@ void	sb_swap_b(t_swap **headb, int i)
 	if (!headb || !*headb)
 		return ;
 	inde = (*headb)->content;
-	(*headb)->content = (*headb)->next->content; 
+	(*headb)->content = (*headb)->next->content;
 	(*headb)->next->content = inde;
 	if (i == 1)
 		write(1, "sb\n", 3);
@@ -62,7 +62,7 @@ void	pa_push_a(t_swap **heada, t_swap **headb, int i)
 	b->prev->next = b->next;
 	b->next->prev = b->prev;
 	del = b;
-	*headb = b->next; 
+	*headb = b->next;
 	if (i == 1)
 		write(1, "pa\n", 3);
 	ft_lstadd_front(heada, ft_lstnew(b->content));
@@ -71,9 +71,11 @@ void	pa_push_a(t_swap **heada, t_swap **headb, int i)
 
 void	pb_push_b(t_swap **heada, t_swap **headb, int i)
 {
+	t_swap	*del;
 	t_swap	*a;
-	t_swap *del;
-	
+	int 	k;
+
+	k = ft_lstsize(*heada);
 	if (!*heada)
 		return ;
 	a = (*heada);
@@ -81,9 +83,11 @@ void	pb_push_b(t_swap **heada, t_swap **headb, int i)
 	a->next->prev = a->prev;
 	del = a;
 	*heada = a->next;
-	ft_lstadd_front(headb, ft_lstnew(a->content));
-	free(del);
 	if (i == 1)
-		write(1,"pb\n",3);
-	
+		write(1, "pb\n", 3);
+	ft_lstadd_front(headb, ft_lstnew(a->content));
+	if (k == 1)
+		heada = NULL;
+	else
+		free(del);
 }

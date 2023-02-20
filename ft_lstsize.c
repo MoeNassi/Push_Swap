@@ -6,13 +6,13 @@
 /*   By: mnassi <mnassi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 14:56:30 by mnassi            #+#    #+#             */
-/*   Updated: 2023/02/17 12:20:30 by mnassi           ###   ########.fr       */
+/*   Updated: 2023/02/20 11:28:12 by mnassi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		ft_lstsize(t_swap *head)
+int	ft_lstsize(t_swap *head)
 {
 	t_swap	*last;
 	int		i;
@@ -25,8 +25,8 @@ int		ft_lstsize(t_swap *head)
 	{
 		last = last->next;
 		i++;
-		if(last == head)
-			break;
+		if (last == head)
+			break ;
 	}
 	return (i);
 }

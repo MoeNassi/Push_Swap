@@ -6,7 +6,7 @@
 /*   By: mnassi <mnassi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 18:36:42 by mnassi            #+#    #+#             */
-/*   Updated: 2023/02/18 11:07:25 by mnassi           ###   ########.fr       */
+/*   Updated: 2023/02/20 17:25:24 by mnassi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,36 +51,6 @@ int	ft_index(t_swap **head, int cmp)
 	return (i);
 }
 
-void	free_tab(char **s)
-{
-	int		i;
-
-	i = 0;
-	while (s[i])
-	{
-		free(s[i]);
-		i++;
-	}
-	free(s);
-}
-
-void	free_list(t_swap **s)
-{
-	t_swap *tmp;
-	t_swap *tmp_next;
-	
-	tmp = *s;
-	tmp_next = tmp->next; 
-	while (1)
-	{
-		free(tmp);
-		tmp = tmp_next;
-		tmp_next = tmp_next->next;
-		if(tmp_next->next == *s)
-			break;
-	}
-}
-
 int	main(int ac, char **av)
 {
 	t_swap	ot;
@@ -92,7 +62,7 @@ int	main(int ac, char **av)
 	i = 0;
 	heada = NULL;
 	headb = NULL;
-	if (ac == 1)
+	if (ac < 3)
 		return (0);
 	ot.za = ft_parsing(ac, av);
 	while (ot.za[i])

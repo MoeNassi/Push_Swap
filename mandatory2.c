@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstaddfront.c                                   :+:      :+:    :+:   */
+/*   mandatory2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnassi <mnassi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/21 13:20:57 by mnassi            #+#    #+#             */
-/*   Updated: 2023/02/20 11:22:10 by mnassi           ###   ########.fr       */
+/*   Created: 2023/02/20 11:20:43 by mnassi            #+#    #+#             */
+/*   Updated: 2023/02/20 11:21:56 by mnassi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_lstadd_front(t_swap **lst, t_swap *new)
+void	rrb_reverse_rb(t_swap **headb, int i)
 {
-	if (!new)
+	if (ft_lstsize(*headb) < 2)
 		return ;
-	if (!lst)
-		return ;
-	new->next = new;
-	new->prev = new;
-	if (*lst)
-	{
-		new->next = *lst;
-		new->prev = (*lst)->prev;
-		(*lst)->prev->next = new;
-		(*lst)->prev = new;
-	}
-	*lst = new;
+	*headb = (*headb)->prev;
+	if (i == 1)
+		write(1, "rrb\n", 4);
+}
+
+void	rrr_reverser(t_swap **heada, t_swap **headb, int i)
+{
+	rra_reverse_ra(heada, 0);
+	rrb_reverse_rb(headb, 0);
+	if (i == 1)
+		write(1, "rrr\n", 4);
 }

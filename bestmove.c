@@ -6,7 +6,7 @@
 /*   By: mnassi <mnassi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 16:22:32 by mnassi            #+#    #+#             */
-/*   Updated: 2023/02/18 15:21:13 by mnassi           ###   ########.fr       */
+/*   Updated: 2023/02/20 15:40:53 by mnassi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,9 @@ void	searchfr(t_move *mv)
 		whosbetter(mv);
 	else if (mv->moveb < 0 && mv->movea < 0)
 		whosbetter(mv);
-	else if (ft_abs(mv->movea) + ft_abs(mv->moveb) <= mv->total)
+	else if (ft_pos(mv->movea) + ft_pos(mv->moveb) <= mv->total)
 	{
-		mv->total = ft_abs(mv->movea) + ft_abs(mv->moveb);
+		mv->total = ft_pos(mv->movea) + ft_pos(mv->moveb);
 		mv->bestmovea = mv->movea;
 		mv->bestmoveb = mv->moveb;
 	}

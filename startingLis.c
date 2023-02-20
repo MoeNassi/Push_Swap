@@ -6,13 +6,13 @@
 /*   By: mnassi <mnassi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 12:04:00 by mnassi            #+#    #+#             */
-/*   Updated: 2023/02/18 15:21:21 by mnassi           ###   ########.fr       */
+/*   Updated: 2023/02/20 11:29:51 by mnassi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		longestincrseb(t_swap **heada)
+int	longestincrseb(t_swap **heada)
 {
 	t_swap	*tmp;
 	t_swap	*saver;
@@ -21,7 +21,6 @@ int		longestincrseb(t_swap **heada)
 
 	i = 0;
 	j = 0;
-	
 	tmp = (*heada);
 	while (1)
 	{
@@ -64,14 +63,14 @@ int	countlis(t_swap **heada)
 	return (i);
 }
 
-int		fakeswap(t_swap **heada, int *lis)
+int	fakeswap(t_swap **heada, int *lis)
 {
 	int		new;
 
 	sa_swap_a(heada, 0);
 	new = longestincrseb(heada);
 	if (new > *lis)
-		return (write(1, "sa\n", 3), *lis = new ,1);
+		return (write(1, "sa\n", 3), *lis = new, 1);
 	else
 		return (sa_swap_a(heada, 0), longestincrseb(heada), 0);
 }
@@ -86,7 +85,7 @@ void	ft_push0tob(t_swap **heada, t_swap **headb)
 	while (i > pushing)
 	{
 		if (fakeswap(heada, &pushing))
-			continue;
+			continue ;
 		if (!(*heada)->key)
 		{
 			pb_push_b(heada, headb, 1);
@@ -96,4 +95,3 @@ void	ft_push0tob(t_swap **heada, t_swap **headb)
 			ra_rotate_a(heada, 1);
 	}
 }
-
